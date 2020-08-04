@@ -9,6 +9,9 @@ import android.support.v4.app.Fragment
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_gallery.*
 import unitec.pg.myapplication.R
 import java.lang.Error
@@ -34,7 +37,7 @@ class GalleryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Aqui hacemos el enlace de nuestros atributos
-        viewModel=ViewModelProviders.of(this).get(GalleryViewModel::class.java)
+        viewModel= ViewModelProviders.of(this).get(GalleryViewModel::class.java)
         //Inmediatamente le vamos a decir que se conecte al back-end
         viewModel.refrescar()
 
@@ -42,7 +45,7 @@ class GalleryFragment : Fragment() {
         //Primero va el enlace. ESTE ES EL ENLACE ENTRE LOS DOS LAYOUT EL QUE
         //CONTIENE EL RECYCLERVIEW Y EL DE LOS ITEMS Y SE HACE POR MEDIO DEL ADAPTER
         perfiles.apply {
-            layoutManager=LinearLayoutManager(context)
+            layoutManager= LinearLayoutManager(context)
             adapter=perfilListAdapter
         }
 
